@@ -95,5 +95,5 @@ copy(
 )
 to '/tmp/sqlinjection.csv' with CSV header;
 ```
-So, this type of functions have to be filtered and access to them have to be 
+So, these functions have to be filtered and their access has to be 
 controlled with care.

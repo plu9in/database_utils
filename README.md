@@ -63,16 +63,18 @@ We have to call the function like this:
 ```
 select public.fnsys_csv_output_in_csv(
     'tmp_table_fields'
-,   p_select_clause := 'table_catalog         as db_name
-,    table_schema        as schema_name
-,    table_name          as table_name
-,    column_name         as column_name
-,    ordinal_position    as column_position
-,    count(*) over w     as nb_column_in_table
-,    count(*) over x     as nb_columns_in_schema'
+,   p_select_clause := '
+         table_catalog         as db_name
+    ,    table_schema        as schema_name
+    ,    table_name          as table_name
+    ,    column_name         as column_name
+    ,    ordinal_position    as column_position
+    ,    count(*) over w     as nb_column_in_table
+    ,    count(*) over x     as nb_columns_in_schema'
 ,   p_from_clause := 'information_schema.columns'
-,   p_windowing_clause  := 'w as (partition by table_catalog, table_schema, table_name)
-,    x as (partition by table_catalog, table_schema)'
+,   p_windowing_clause  := '
+        w as (partition by table_catalog, table_schema, table_name)
+    ,   x as (partition by table_catalog, table_schema)'
 ,   p_order_by_clause := '1, 2, 3, ordinal_position'
 ,   debug := true
 );

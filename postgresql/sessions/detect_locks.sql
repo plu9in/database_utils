@@ -9,7 +9,7 @@ with lock_view as (
     ,   locked_stats.pid                                                    as locked_session_pid
     ,   locking_stats.pid                                                   as locking_session_pid
     ,   now()-locking_stats.query_start                                     as locking_duration
-    ,   now()-locked_stats.query_start                                     	as locked_duration
+    ,   now()-locked_stats.query_start                                      as locked_duration
     ,   to_char(locking_stats.backend_start,'YYYYMMDD HH24:MI:SS')          as locking_session_starting_time
     ,   to_char(locking_stats.query_start,'YYYYMMDD HH24:MI:SS')            as locking_query_starting_time
     ,   locked_stats.datname                                                as database_name

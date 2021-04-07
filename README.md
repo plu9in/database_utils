@@ -1,4 +1,4 @@
-# sql_utils
+# database_utils
 This repository contains some functions, sql orders useful on a project
 
 ## postgres - csv

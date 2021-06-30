@@ -27,10 +27,10 @@ Once it is generated, you can add the relationships between tables to produce th
 
 [fnsys_partitions]('./postgresql/functions/fnsys_partitions.sql')
 
-This script creates all the objects necessary to show a proof of concept. 
+This script creates all the objects necessary to show the proof of concept described below. 
 
 The idea behind this POC is to select on the right physical partition from a function. 
-With the created objects from the function, you can do things like that :
+With the created objects from the script fnsys_partitions, you can do things like that :
 ```
 with tmp_table(name, parts) as (
     values 

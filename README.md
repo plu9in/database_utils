@@ -18,14 +18,14 @@ select public.fnsys_csv_load_whatever_csv('products', 'tmp_products', debug:= tr
 ```
 ## postgres - data models
 
-[generate_graphviz_data_model]('./postgresql/data_models/generate_graphviz_data_model.sql')
+[generate_graphviz_data_model](./postgresql/data_models/generate_graphviz_data_model.sql)
 
 This query generates a script to give to graphviz. There are still some improvements to make on it.
 Once it is generated, you can add the relationships between tables to produce the edges.
 
 ## postgres - functions
 
-[fnsys_partitions]('./postgresql/functions/fnsys_partitions.sql')
+[fnsys_partitions](./postgresql/functions/fnsys_partitions.sql)
 
 This script creates all the objects necessary to show the proof of concept described below. 
 

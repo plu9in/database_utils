@@ -23,6 +23,31 @@ select public.fnsys_csv_load_whatever_csv('products', 'tmp_products', debug:= tr
 This query generates a script to give to graphviz. There are still some improvements to make on it.
 Once it is generated, you can add the relationships between tables to produce the edges.
 
+## postgres - functions
+
+[fnsys_partitions]('./postgresql/functions/fnsys_partitions.sql')
+
+This script creates all the objects necessary to show a proof of concept. 
+
+The idea behind this POC is to select on the right physical partition from a function. 
+With the created objects from the function, you can do things like that :
+```
+with tmp_table(name, parts) as (
+    values 
+    ('partition 1', '1')
+,   ('partition 2', '2')
+)
+,   w as (
+    select 
+        name, fnsys_partitions(part:= parts) as t
+    from tmp_table
+)
+select name, (t::footype).id, (t::footype).code from w
+```
+Of course, `tmp_table` can be anything you want (a table, a view, etc.). This type of code could be interesting
+for BI softwares (like Microstrategy, Tableau, Qlik or others), for example when you have to many partitions to 
+map them.
+
 ## postgres - session 
 
 ##### [detect_locks](./postgresql/sessions/detect_locks.sql)
